@@ -9,6 +9,9 @@
   picotool,
   javelin-steno,
   javelin-steno-pico,
+
+  emptyFile,
+  javelin-config ? emptyFile,
 }:
 let
   pico-sdk' = pico-sdk.override { withSubmodules = true; };
@@ -24,6 +27,8 @@ stdenv.mkDerivation {
       cp -r ./* $out/
       mkdir -p $out/javelin
       cp -rs ${javelin-steno}/* $out/javelin/
+
+      ln -s ${javelin-config} $out/config/javelin-flake.h
     '';
   };
 
@@ -42,7 +47,7 @@ stdenv.mkDerivation {
 
   cmakeFlags = [
     "-DCMAKE_VERBOSE_MAKEFILE=ON"
-    "-DJAVELIN_BOARD=uni_v4"
+    "-DJAVELIN_BOARD=javelin-flake"
     "-DPICO_SDK_PATH=${pico-sdk'}/lib/pico-sdk"
     "-DPICO_PLATFORM=rp2040"
 
@@ -58,9 +63,6 @@ stdenv.mkDerivation {
     "-DCMAKE_MAKE_PROGRAM=${gnumake}/bin/make"
     "-DPICOTOOL_PATH=${picotool}/bin/picotool"
     "-DPICOTOOL_EXECUTABLE=${picotool}/bin/picotool"
-
-    "-DCMAKE_C_FLAGS=-mcpu=cortex-m0plus -DPLL_SYS_VCO_FREQ_HZ=1500000000 -DPLL_SYS_POSTDIV1=6 -DPLL_SYS_POSTDIV2=2"
-    "-DCMAKE_CXX_FLAGS=-mcpu=cortex-m0plus -DPLL_SYS_VCO_FREQ_HZ=1500000000 -DPLL_SYS_POSTDIV1=6 -DPLL_SYS_POSTDIV2=2"
   ];
 
   preConfigure = ''

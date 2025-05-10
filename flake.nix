@@ -32,8 +32,10 @@
         };
       });
 
-      packages = forEachSystem (pkgs: {
+      packages = forEachSystem (pkgs: rec {
         default = pkgs.callPackage ./package.nix { inherit (inputs) javelin-steno javelin-steno-pico; };
+
+        my-config = default.override { javelin-config = ./my-config.h; };
       });
     };
 }
