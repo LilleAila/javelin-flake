@@ -1,0 +1,61 @@
+{
+  "nodes": {
+    "javelin-steno": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746438544,
+        "narHash": "sha256-62ZcafnnQjgq0JVbeaYjelZafKAMX5A0g7G0iyOU//c=",
+        "owner": "jthlim",
+        "repo": "javelin-steno",
+        "rev": "97f264365ba7bef2546ddeaa2557a5fc30f998b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jthlim",
+        "repo": "javelin-steno",
+        "type": "github"
+      }
+    },
+    "javelin-steno-pico": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746438578,
+        "narHash": "sha256-sW9oDaS/Yy9v+gwe2ccjA5GadKM5mmiaJIc0vuOecE8=",
+        "owner": "jthlim",
+        "repo": "javelin-steno-pico",
+        "rev": "a44e22e82a8e876e7a725751d5b33fde5acec838",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jthlim",
+        "repo": "javelin-steno-pico",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1746663147,
+        "narHash": "sha256-Ua0drDHawlzNqJnclTJGf87dBmaO/tn7iZ+TCkTRpRc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "javelin-steno": "javelin-steno",
+        "javelin-steno-pico": "javelin-steno-pico",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
